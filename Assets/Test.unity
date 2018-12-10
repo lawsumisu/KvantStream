@@ -267,7 +267,8 @@ MonoBehaviour:
   _tail: 1
   _randomSeed: 0
   _debug: 0
-  _radius: 1
+  _radius: 0
+  _radiusGrowthRate: 0.25
   _kernelShader: {fileID: 4800000, guid: ad7cc5b7ddcd6894a80f528f76df442c, type: 3}
   _lineShader: {fileID: 4800000, guid: 456607e7d289e480eb05f5bc12ad0fe6, type: 3}
   _debugShader: {fileID: 4800000, guid: 6d079a8b94e4546bd8b1c43b825a8305, type: 3}
@@ -301,7 +302,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!23 &1656229777
 MeshRenderer:
   m_ObjectHideFlags: 0
