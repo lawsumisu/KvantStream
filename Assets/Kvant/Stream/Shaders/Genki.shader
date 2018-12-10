@@ -95,11 +95,11 @@ Shader "Hidden/Kvant/Stream/Genki"
                 // its current velocity. Since the particle won't get any nearer to the center, repeated passes of this should have the
                 // particle move around the center in an erratic orbit.
                 float t = _Time.x;
-                float3 k = _MousePosition - p; // Defines a plane where any vector that lies within it will be tangent to the initial velocity vector.
+                float3 normal = _MousePosition - p; // Defines a plane where any vector that lies within it will be tangent to the initial velocity vector.
                 float theta = nrand(uv, t) * 6.28;
-                v = cross(v, float3(1, 0, 0));  // Generate an arbitrary tangent (assumes that v will not be parallel to [1,0,0] with high probability)
+                float3 tangent = cross(v, float3(1, 0, 0));  // Generate an arbitrary tangent (assumes that v will not be parallel to [1,0,0] with high probability)
                 // Rotate this tangent around the plane defined by k by an angle theta.
-                v = v * cos(theta) + cross(k, v) * sin(theta) + p * dot(k, v) * (1 - cos(theta));
+                v = tangent * cos(theta) + cross(normal, tangent) * sin(theta) + normal * dot(normal, tangent) * (1 - cos(theta));
                 return normalize(v) * gatheringSpeed;
             }
         }
